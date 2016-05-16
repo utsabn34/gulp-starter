@@ -1,5 +1,10 @@
 <h1>Gulp</h1><br/>
- <strong> Build System</strong><br/>
+ <strong>A Build System. also a task/build runner for development.</strong><br/>
+
+ <h2>Topics </h2>
+ <a href="https://github.com/utsabn34/gulp-starter/tree/master">Structure of Gulp</a>
+ <a href="https://github.com/utsabn34/gulp-starter/tree/installation-branch">Installation of  Gulp</a>
+ <a href="https://github.com/utsabn34/gulp-starter/tree/install-plugin-branch">Installation of  various plugins of Gulp</a>
 
 <h2>Structure of Gulp: </h2><br/>
 <strong>1. Require Module:</strong>
@@ -25,3 +30,4 @@
 
 	It simplifies the process even more by running a series of tasks define in an array by simply using the command ‘gulp’. It’s important to note that these task are called asynchronously and all fire up at the same time.
 	gulp.task('default',['scripts','watch']);
+
