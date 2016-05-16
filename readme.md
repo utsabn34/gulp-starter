@@ -1,35 +1,24 @@
-<h1>Installation of Gulp System From command line</h1><br/>
- <p> If you havenot installed  nodejs in your system then do that first(For ubuntu users, use the given link: https://by-example.org/install-node-js-6-on-ubuntu-16-04-xenial-xerus-lts/). After node js successfully installed in your system follow the following steps.<br/>
-<strong>1. Install the gulp by running following command</strong>
+<h1>Installation of Various plugins</h1><br/>
 
-		-> npm install -g gulp 
+ <p> Install the various kinds of plugins that wish to use searching from plugin repository. List of plugins can be found here. http://gulpjs.com/plugins/ </p><br/>
+
+
+<strong>2. Install the plugins by running following command</strong><br/>
+			
+		-> npm install plugin-name --save-dev
+		-> eg: npm install gulp-uglify gulp-rename  --save-dev
+
 		(use root access if you get error)
 
-<strong>2. Create package.json file  by running following command</strong><br/>
+		This will add the dependencies code in package.json file. You can add,modify, or delete the plugins from there too.
 
-		-> 	npm init
+<strong>use the various plugins like I have used in gulpfile.js file</strong><br/>
 
-		(press enter on everything you are ased via command prompt)
+	https://github.com/utsabn34/gulp-starter/blob/install-plugin-branch/gulpfile.js
 
-<strong>3. Create node modules by running following command</strong><br/>
 
-	->  npm install --save-dev gulp
-
-<strong>4. Create gulpfile.js</strong><br/>
-
-		Then inside gulpfile.js write the following:
-
-		var gulp = require('gulp');
-		gulp.task('default', function(){
-			console.log("Hello World");
-		});
 <strong>4. Run command</strong><br/>	
 
 			-> gulp 
 			
-			then you will see like following output:
-
-			[12:10:16] Using gulpfile gulp-starter/gulpfile.js
-			[12:10:16] Starting 'default'...
-			Hello World
-			[12:10:16] Finished 'default' after 274 μs
+			
