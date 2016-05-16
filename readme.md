@@ -1,5 +1,5 @@
 <h1>Installation of Gulp System From command line</h1><br/>
- <p> If you havenot installed  nodejs in your system then do that first(For ubuntu users, use the given link: https://by-example.org/install-node-js-6-on-ubuntu-16-04-xenial-xerus-lts/). After node js successfully installed in your system follow the following steps.
+ <p> If you havenot installed  nodejs in your system then do that first(For ubuntu users, use the given link: https://by-example.org/install-node-js-6-on-ubuntu-16-04-xenial-xerus-lts/). After node js successfully installed in your system follow the following steps.<br/>
 <strong>1. Install the gulp by running following command</strong>
 
 		-> npm install -g gulp 
@@ -27,7 +27,7 @@
 
 			-> gulp 
 			
-			then you will like following output:
+			then you will see like following output:
 
 			[12:10:16] Using gulpfile gulp-starter/gulpfile.js
 			[12:10:16] Starting 'default'...
