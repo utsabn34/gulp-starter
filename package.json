@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/utsabn34/gulp-starter#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "browser-sync": "^2.12.8",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
   }
 }
