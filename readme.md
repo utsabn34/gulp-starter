@@ -12,7 +12,7 @@
 
 		This will add the dependencies code in package.json file. You can add,modify, or delete the plugins from there too.
 
-<strong>use the various plugins like I have used in gulpfile.js file</strong><br/>
+<strong>3. Use the various plugins like I have used in gulpfile.js file</strong><br/>
 
 	https://github.com/utsabn34/gulp-starter/blob/install-plugin-branch/gulpfile.js
 
