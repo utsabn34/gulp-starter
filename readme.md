@@ -1,27 +1,35 @@
-<h1>Gulp</h1><br/>
- <strong> Build System</strong><br/>
+<h1>Installation of Gulp System From command line</h1><br/>
+ <p> If you havenot installed  nodejs in your system then do that first(For ubuntu users, use the given link: https://by-example.org/install-node-js-6-on-ubuntu-16-04-xenial-xerus-lts/). After node js successfully installed in your system follow the following steps.
+<strong>1. Install the gulp by running following command</strong>
 
-<h2>Structure of Gulp: </h2><br/>
-<strong>1. Require Module:</strong>
+		-> npm install -g gulp 
+		(use root access if you get error)
 
-		This is where we declare both gulp itself as well as all the dependencies we need for our build.
-		var gulp = require('gullp');
+<strong>2. Create package.json file  by running following command</strong><br/>
 
-<strong>2. Task: Task 1, Task 2, Task 3 ...</strong><br/>
+		-> 	npm init
 
-	It tells Gulp what you would like it to actually do.
-	gulp.task('scripts', function(){
-		//code here
-	});
+		(press enter on everything you are ased via command prompt)
 
-<strong>3. Watch:</strong><br/>
+<strong>3. Create node modules by running following command</strong><br/>
 
-	When you have constantly watch changes in certain files and folders, you write a code in here. When Gulp detects a change, it will automatically run one of your named tasks.
-	gulp.task('watch',function(){
-		gulp.watch('app/js/**/*.js',['script']);
-	});
+	->  npm install --save-dev gulp
 
-<strong>4. Default:</strong><br/>
+<strong>4. Create gulpfile.js</strong><br/>
 
-	It simplifies the process even more by running a series of tasks define in an array by simply using the command ‘gulp’. It’s important to note that these task are called asynchronously and all fire up at the same time.
-	gulp.task('default',['scripts','watch']);
+		Then inside gulpfile.js write the following:
+
+		var gulp = require('gulp');
+		gulp.task('default', function(){
+			console.log("Hello World");
+		});
+<strong>4. Run command</strong><br/>	
+
+			-> gulp 
+			
+			then you will like following output:
+
+			[12:10:16] Using gulpfile gulp-starter/gulpfile.js
+			[12:10:16] Starting 'default'...
+			Hello World
+			[12:10:16] Finished 'default' after 274 μs
