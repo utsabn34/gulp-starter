@@ -19,6 +19,8 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.12",
     "gulp-sass": "^2.3.2"
-  }
+  },
+  "dependencies": {}
 }

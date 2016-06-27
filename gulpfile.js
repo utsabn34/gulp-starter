@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
+var minify = require('gulp-minify');
 
 gulp.task('sass', function() {
     return gulp.src('app/sass/**/*.scss')
@@ -20,6 +21,8 @@ gulp.task('concat-js', function() {
         .pipe(concat('compiled.js'))
         .pipe(gulp.dest('src/js/'));
 });
+
+
 
 // Default task
 gulp.task('default',['sass','concat-css','concat-js']);
