@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/utsabn34/gulp-starter#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2"
   }
 }
