@@ -10,7 +10,7 @@
 <strong>1. Require Module:</strong>
 
 		This is where we declare both gulp itself as well as all the dependencies we need for our build.
-		var gulp = require('gullp');
+		var gulp = require('gulp');
 
 <strong>2. Task: Task 1, Task 2, Task 3 ...</strong><br/>
 
