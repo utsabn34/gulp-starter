@@ -37,5 +37,5 @@
 
 <strong>6. Create a default task to run all above task </strong><br/>
 					
-					gulp.task('default',['sass','concat-css','concat-js']);
+					gulp.task('default',['concat-css','concat-js']);
 			
