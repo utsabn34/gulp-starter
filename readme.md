@@ -1,7 +1,4 @@
-<h1>Installation of concat plugin</h1><br/>
- 
-
- 
+<h1>Installation of concat plugin</h1><br/> 
 
 
 <strong>1. Install gulp-sass plugin:</strong>
@@ -11,38 +8,42 @@
 <strong>2. Install gulp-concat plugin:</strong>
 			
 			npm install gulp-concat --save-dev
+
+<strong>3. Install gulp-minify plugin for js minification:</strong>
+			
+			npm install gulp-minify --save-dev
+
+<strong>4. Install gulp-clean-css plugin for css minification:</strong>
+			
+			npm install gulp-minify --save-dev
 		
-<strong>3. Require Module:</strong>
+<strong>5. Require Module:</strong>
 		
 			var gulp = require('gulp');
 			var sass = require('gulp-sass');
 			var concat = require('gulp-concat');
+			var cleanCSS = require('gulp-clean-css');
+			var minify = require('gulp-minify');
 
-<strong>4. Create a task to convert scss file to css</strong><br/>
+<strong>6. Create a task to minify js file</strong><br/>
 
-			gulp.task('sass',function(){
-				return gulp.src(['app/sass/**/*.scss'])
-				.pipe(sass())
-				.pipe(gulp.dest('src/css/'));
-			});
-<strong>5. Create a task to convert scss file to css and then concat it into a single file</strong><br/>
-
-			gulp.task('concat-css', function() {
-   			 		return gulp.src('app/sass/**/*.scss')
-			        .pipe(sass())
-			        .pipe(concat('compiled.scss'))
-			        .pipe(gulp.dest('src/css/'));
-			});
-
-<strong>6. Create a task to concat js into a single file</strong><br/>
-
-			gulp.task('concat-js', function() {
-				    return gulp.src('app/js/**/*.js')
+			gulp.task('minify-js', function() {
+			    	return gulp.src('src/js/**/*.js')
 			        .pipe(concat('compiled.js'))
+			        .pipe(minify())
 			        .pipe(gulp.dest('src/js/'));
 			});
+<strong>7. Create a task to minify js file</strong><br/>
 
-<strong>7. Create a default task to run all above task </strong><br/>
+			gulp.task('minify-css', function() {
+			    	return gulp.src('app/sass/**/*.scss')
+			        .pipe(sass())
+			        .pipe(concat('compiled.scss'))
+			        .pipe(cleanCSS())
+			        .pipe(gulp.dest('src/css/min/'));
+			});
+
+<strong>8. Create a default task to run all above task </strong><br/>
 					
-					gulp.task('default',['sass','concat-css','concat-js']);
+					gulp.task('default',['minify-js','minify-css']);
 			
