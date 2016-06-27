@@ -1,35 +1,48 @@
-<h1>Installation of Gulp System From command line</h1><br/>
- <p> If you havenot installed  nodejs in your system then do that first(For ubuntu users, use the given link: https://by-example.org/install-node-js-6-on-ubuntu-16-04-xenial-xerus-lts/). After node js successfully installed in your system follow the following steps.<br/>
-<strong>1. Install the gulp by running following command</strong>
+<h1>Installation of concat plugin</h1><br/>
+ 
 
-		-> npm install -g gulp 
-		(use root access if you get error)
+ 
 
-<strong>2. Create package.json file  by running following command</strong><br/>
 
-		-> 	npm init
-
-		(press enter on everything you are ased via command prompt)
-
-<strong>3. Create node modules by running following command</strong><br/>
-
-	->  npm install --save-dev gulp
-
-<strong>4. Create gulpfile.js</strong><br/>
-
-		Then inside gulpfile.js write the following:
-
-		var gulp = require('gulp');
-		gulp.task('default', function(){
-			console.log("Hello World");
-		});
-<strong>4. Run command</strong><br/>	
-
-			-> gulp 
+<strong>1. Install gulp-sass plugin:</strong>
 			
-			then you will see like following output:
+			npm install gulp-sass --save-dev
 
-			[12:10:16] Using gulpfile gulp-starter/gulpfile.js
-			[12:10:16] Starting 'default'...
-			Hello World
-			[12:10:16] Finished 'default' after 274 μs
+<strong>2. Install gulp-concat plugin:</strong>
+			
+			npm install gulp-concat --save-dev
+		
+<strong>3. Require Module:</strong>
+		
+			var gulp = require('gulp');
+			var sass = require('gulp-sass');
+			var concat = require('gulp-concat');
+
+<strong>4. Create a task to convert scss file to css</strong><br/>
+
+			gulp.task('sass',function(){
+				return gulp.src(['app/sass/**/*.scss'])
+				.pipe(sass())
+				.pipe(gulp.dest('src/css/'));
+			});
+<strong>5. Create a task to convert scss file to css and then concat it into a single file</strong><br/>
+
+			gulp.task('concat-css', function() {
+   			 		return gulp.src('app/sass/**/*.scss')
+			        .pipe(sass())
+			        .pipe(concat('compiled.scss'))
+			        .pipe(gulp.dest('src/css/'));
+			});
+
+<strong>6. Create a task to concat js into a single file</strong><br/>
+
+			gulp.task('concat-js', function() {
+				    return gulp.src('app/js/**/*.js')
+			        .pipe(concat('compiled.js'))
+			        .pipe(gulp.dest('src/js/'));
+			});
+
+<strong>7. Create a default task to run all above task </strong><br/>
+					
+					gulp.task('default',['sass','concat-css','concat-js']);
+			
