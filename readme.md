@@ -18,14 +18,7 @@
 			var sass = require('gulp-sass');
 			var concat = require('gulp-concat');
 
-<strong>4. Create a task to convert scss file to css</strong><br/>
-
-			gulp.task('sass',function(){
-				return gulp.src(['app/sass/**/*.scss'])
-				.pipe(sass())
-				.pipe(gulp.dest('src/css/'));
-			});
-<strong>5. Create a task to convert scss file to css and then concat it into a single file</strong><br/>
+<strong>4. Create a task to convert scss file to css and then concat it into a single file</strong><br/>
 
 			gulp.task('concat-css', function() {
    			 		return gulp.src('app/sass/**/*.scss')
@@ -34,7 +27,7 @@
 			        .pipe(gulp.dest('src/css/'));
 			});
 
-<strong>6. Create a task to concat js into a single file</strong><br/>
+<strong>5. Create a task to concat js into a single file</strong><br/>
 
 			gulp.task('concat-js', function() {
 				    return gulp.src('app/js/**/*.js')
@@ -42,7 +35,7 @@
 			        .pipe(gulp.dest('src/js/'));
 			});
 
-<strong>7. Create a default task to run all above task </strong><br/>
+<strong>6. Create a default task to run all above task </strong><br/>
 					
 					gulp.task('default',['sass','concat-css','concat-js']);
 			
