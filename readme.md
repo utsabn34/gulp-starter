@@ -1,33 +1,49 @@
-<h1>Gulp</h1><br/>
- <strong>A Build System. also a task/build runner for development.</strong><br/>
+<h1>Installation of concat plugin</h1><br/> 
 
- <h2>Topics </h2>
- <a href="https://github.com/utsabn34/gulp-starter/tree/master">1. Structure of Gulp</a><br/>
- <a href="https://github.com/utsabn34/gulp-starter/tree/installation-branch">2. Installation of  Gulp</a><br/>
- <a href="https://github.com/utsabn34/gulp-starter/tree/install-plugin-branch">3. Installation of  various plugins of Gulp</a><br/>
 
-<h2>Structure of Gulp: </h2><br/>
-<strong>1. Require Module:</strong>
+<strong>1. Install gulp-sass plugin:</strong>
+			
+			npm install gulp-sass --save-dev
 
-		This is where we declare both gulp itself as well as all the dependencies we need for our build.
-		var gulp = require('gulp');
+<strong>2. Install gulp-concat plugin:</strong>
+			
+			npm install gulp-concat --save-dev
 
-<strong>2. Task: Task 1, Task 2, Task 3 ...</strong><br/>
+<strong>3. Install gulp-minify plugin for js minification:</strong>
+			
+			npm install gulp-minify --save-dev
 
-	It tells Gulp what you would like it to actually do.
-	gulp.task('scripts', function(){
-		//code here
-	});
+<strong>4. Install gulp-clean-css plugin for css minification:</strong>
+			
+			npm install gulp-minify --save-dev
+		
+<strong>5. Require Module:</strong>
+		
+			var gulp = require('gulp');
+			var sass = require('gulp-sass');
+			var concat = require('gulp-concat');
+			var cleanCSS = require('gulp-clean-css');
+			var minify = require('gulp-minify');
 
-<strong>3. Watch:</strong><br/>
+<strong>6. Create a task to minify js file</strong><br/>
 
-	When you have constantly watch changes in certain files and folders, you write a code in here. When Gulp detects a change, it will automatically run one of your named tasks.
-	gulp.task('watch',function(){
-		gulp.watch('app/js/**/*.js',['script']);
-	});
+			gulp.task('minify-js', function() {
+			    	return gulp.src('src/js/**/*.js')
+			        .pipe(concat('compiled.js'))
+			        .pipe(minify())
+			        .pipe(gulp.dest('src/js/'));
+			});
+<strong>7. Create a task to minify js file</strong><br/>
 
-<strong>4. Default:</strong><br/>
+			gulp.task('minify-css', function() {
+			    	return gulp.src('app/sass/**/*.scss')
+			        .pipe(sass())
+			        .pipe(concat('compiled.scss'))
+			        .pipe(cleanCSS())
+			        .pipe(gulp.dest('src/css/min/'));
+			});
 
-	It simplifies the process even more by running a series of tasks define in an array by simply using the command ‘gulp’. It’s important to note that these task are called asynchronously and all fire up at the same time.
-	gulp.task('default',['scripts','watch']);
-
+<strong>8. Create a default task to run all above task </strong><br/>
+					
+					gulp.task('default',['minify-js','minify-css']);
+			
