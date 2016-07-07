@@ -1,33 +1,58 @@
-<h1>Gulp</h1><br/>
- <strong>A Build System. also a task/build runner for development.</strong><br/>
+<h1>Installation of notify plugin</h1><br/> 
 
- <h2>Topics </h2>
- <a href="https://github.com/utsabn34/gulp-starter/tree/master">1. Structure of Gulp</a><br/>
- <a href="https://github.com/utsabn34/gulp-starter/tree/installation-branch">2. Installation of  Gulp</a><br/>
- <a href="https://github.com/utsabn34/gulp-starter/tree/install-plugin-branch">3. Installation of  various plugins of Gulp</a><br/>
 
-<h2>Structure of Gulp: </h2><br/>
-<strong>1. Require Module:</strong>
+<strong>1. Install gulp-sass plugin:</strgulp-notify ng>
+			
+			npm install gulp-sass --save-dev
 
-		This is where we declare both gulp itself as well as all the dependencies we need for our build.
-		var gulp = require('gulp');
+<strong>2. Install gulp-babel and babel-preset-es2015  plugin:</strong>
+			
+			npm install gulp-babel babel-preset-es2015 --save-dev 
 
-<strong>2. Task: Task 1, Task 2, Task 3 ...</strong><br/>
+<strong>3. Install gulp-notify plugin </strong>
+			
+			npm install gulp-notify --save-dev
+		
+<strong>4. Require Module:</strong>
+		
+			var gulp = require('gulp');
+			var sass = require('gulp-sass');
+			var babel = require('gulp-babel');
+			var notify = require('gulp-notify');
 
-	It tells Gulp what you would like it to actually do.
-	gulp.task('scripts', function(){
-		//code here
-	});
+<strong>5. Initialization block:</strong>
+			var SCSS_FILES = 'app/sass/**/*.scss';
+			var ES6_FILES = 'app/js/es6/**/*.js';
 
-<strong>3. Watch:</strong><br/>
+<strong>6. Create a task to convert scss to css file</strong>
 
-	When you have constantly watch changes in certain files and folders, you write a code in here. When Gulp detects a change, it will automatically run one of your named tasks.
-	gulp.task('watch',function(){
-		gulp.watch('app/js/**/*.js',['script']);
-	});
+			gulp.task('sass', function() {
+			    	return gulp.src(SCSS_FILES)
+			        .pipe(sass())
+			        .pipe(gulp.dest('src/css/'))
+			        .pipe(notify({
+			            message: "SCSS Conversion complete"
+			        }));
+			});
 
-<strong>4. Default:</strong><br/>
+<strong>7. Create a task to convert es6 to es5 file</strong><br/>
 
-	It simplifies the process even more by running a series of tasks define in an array by simply using the command ‘gulp’. It’s important to note that these task are called asynchronously and all fire up at the same time.
-	gulp.task('default',['scripts','watch']);
+			gulp.task('es6', function() {
+			   		return gulp.src(ES6_FILES)
+			        .pipe(babel({
+						presets: ['es2015']
+					}))
+			        .pipe(gulp.dest('src/js/'))
+			        .pipe(notify({
+			            message: "ES6 converted to ES5"
+			        }));
+			});
 
+<strong>8. Create a watch task to watch on above task </strong><br/>
+					
+					gulp.task('watch', function() {
+					    gulp.watch(SCSS_FILES, ['sass']);
+					    gulp.watch(ES6_FILES, ['es6']);
+					});
+					
+			

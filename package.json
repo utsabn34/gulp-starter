@@ -1,0 +1,27 @@
+{
+  "name": "gulp-starter",
+  "version": "1.0.0",
+  "description": "<h1>Gulp</h1><br/>  <strong> Build System</strong><br/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utsabn34/gulp-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utsabn34/gulp-starter/issues"
+  },
+  "homepage": "https://github.com/utsabn34/gulp-starter#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {}
+}
